@@ -14,6 +14,7 @@ class TicketTriage(BaseModel):
     category: Literal["access", "hardware", "software", "network", "other"]
     priority: Literal["low", "medium", "high"]
     reason: str
+    affected_users: Literal["one", "several", "everyone"]
 
 
 ticket = (
@@ -41,6 +42,7 @@ print("Summary: ", triage.summary)
 print("Category:", triage.category)
 print("Priority:", triage.priority)
 print("Reason:  ", triage.reason)
+print("Affected Users: ", triage.affected_users)
 
 if triage.priority == "high":
     print("Action:   page the on-call engineer")
